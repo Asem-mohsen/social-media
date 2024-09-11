@@ -12,18 +12,37 @@ import { User } from '../../../../interfaces/user';
 })
 export class NavbarComponent {
 
-  user !: User
+  user: User = {
+    id: '',
+    name: '',
+    email: '',
+    gender: '',
+    dateOfBirth: '',
+    createdAt: '',
+    photo: '',
+  };
 
   isLogged : boolean = false
   constructor(private authService : AuthService , private router :Router){}
 
   ngOnInit(): void {
-    this.authService.getUserData().subscribe({
-      next : (res)=>{
-        this.user = res.user
-      }
-    })
+    this.isLoggedUser();
+  }
 
+  isLoggedUser()
+  {
+    const token = this.authService.getToken();
+    if(token){
+      this.isLogged = true;
+
+      this.authService.getUserData().subscribe({
+        next : (res)=>{
+          this.user = res.user
+        }
+      })
+    }else {
+      this.isLogged = false;
+    }
   }
 
   signOut()
