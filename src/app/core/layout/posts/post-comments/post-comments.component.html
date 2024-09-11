@@ -1,0 +1,12 @@
+<div class="flex flex-col gap-3">
+  @for (comment of allComments; track $index) {
+    <div class="bg-slate-200 p-5 rounded-lg">
+      <div class="flex gap-1 items-center">
+        <img class="w-8 rounded-full" [src]="comment.commentCreator.photo">
+        <h5>{{comment.commentCreator.name}}</h5>
+        <span class="text-gray-500 font-light">{{ comment.createdAt | date}}</span>
+      </div>
+      <p>{{comment.content}}</p>
+    </div>
+  }
+</div>

@@ -1,0 +1,20 @@
+h1{
+  font-size: 35px;
+  color: blue;
+  font-weight: 500;
+}
+h2{
+  font-size: 24px;
+  color: blue;
+  margin-bottom: 20px;
+}
+.box-container{
+  box-shadow: 1px 1px 18px 2px #cbcbcb;
+}
+p{
+  color: #818181;
+}
+p a{
+  color: blue;
+  font-size: 15px;
+}
